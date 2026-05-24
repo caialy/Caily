@@ -1,0 +1,71 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 38,
+  "margin-top": 8,
+  "margin-left": 12,
+  "margin-right": 12,
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": [
+    "custom/screenshot",
+    "pulseaudio",
+    "network",
+    "cpu",
+    "memory",
+    "battery",
+    "tray"
+  ],
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "on-click": "activate",
+    "format": "{name}"
+  },
+  "custom/screenshot": {
+  "format": "󰄀",
+  "tooltip": "Take Screenshot",
+  "on-click": "flameshot gui",
+  "on-click-right": "flameshot full -p ~/Pictures/Screenshots"
+  },
+  "clock": {
+    "format": "  {:%H:%M}",
+    "tooltip-format": "{:%A, %d %B %Y}"
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟 muted",
+    "format-icons": {
+      "default": ["󰕿", "󰖀", "󰕾"]
+    },
+    "on-click": "pavucontrol",
+    "scroll-step": 5
+  },
+  "network": {
+    "format-wifi": "󰖩 {signalStrength}%",
+    "format-ethernet": "󰈀 ethernet",
+    "format-disconnected": "󰖪 offline",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%) — {ipaddr}",
+    "tooltip-format-ethernet": "{ifname} — {ipaddr}"
+  },
+  "battery": {
+    "format": "󰁹 {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "format-full": "󰁹 full",
+    "states": {
+      "warning": 30,
+      "critical": 15
+    }
+  },
+  "cpu": {
+    "format": "󰻠 {usage}%",
+    "interval": 2
+  },
+  "memory": {
+    "format": "󰍛 {used:0.1f}G",
+    "interval": 5
+  },
+  "tray": {
+    "spacing": 10
+  }
+}
