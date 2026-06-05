@@ -14,23 +14,25 @@
     "cpu",
     "memory",
     "battery",
+    "custom/swaync",
     "tray"
   ],
   "hyprland/workspaces": {
     "disable-scroll": true,
     "all-outputs": true,
-    "on-click": "activate",
     "format": "{name}"
   },
   "custom/screenshot": {
-  "format": "󰄀",
-  "tooltip": "Take Screenshot",
-  "on-click": "flameshot gui",
-  "on-click-right": "flameshot full -p ~/Pictures/Screenshots"
+    "format": "󰄀",
+    "tooltip": "Take Screenshot",
+    "on-click": "flameshot gui",
+    "on-click-right": "flameshot full -p ~/Pictures/Screenshots"
   },
   "clock": {
-    "format": "  {:%H:%M}",
-    "tooltip-format": "{:%A, %d %B %Y}"
+    "format": "󰥔 {:%H:%M}",
+    "tooltip-format": "{:%A, %d %B %Y}",
+    "margin-left": "auto",
+    "margin-right": "auto"
   },
   "pulseaudio": {
     "format": "{icon} {volume}%",
@@ -46,7 +48,8 @@
     "format-ethernet": "󰈀 ethernet",
     "format-disconnected": "󰖪 offline",
     "tooltip-format-wifi": "{essid} ({signalStrength}%) — {ipaddr}",
-    "tooltip-format-ethernet": "{ifname} — {ipaddr}"
+    "tooltip-format-ethernet": "{ifname} — {ipaddr}",
+    "on-click": "networkmanager_dmenu"
   },
   "battery": {
     "format": "󰁹 {capacity}%",
@@ -64,6 +67,24 @@
   "memory": {
     "format": "󰍛 {used:0.1f}G",
     "interval": 5
+  },
+  "custom/swaync": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification":          "󰂚",
+      "none":                   "󰂜",
+      "dnd-notification":      "󱏧",
+      "dnd-none":              "󱏦",
+      "inhibited-notification": "󰂚",
+      "inhibited-none":        "󰂜"
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
   },
   "tray": {
     "spacing": 10

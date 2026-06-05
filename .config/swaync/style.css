@@ -1,0 +1,197 @@
+@define-color cc-bg rgba(16, 16, 20, 0.55);
+@define-color noti-border-color rgba(255, 255, 255, 0.10);
+@define-color noti-bg rgba(255, 255, 255, 0.06);
+@define-color noti-bg-hover rgba(255, 255, 255, 0.18);
+@define-color text-color #dcd7ba;
+@define-color text-color-disabled #7a7a7a;
+
+/* MONOCHROME ACCENTS (no color) */
+@define-color accent rgba(255, 255, 255, 0.85);
+@define-color accent-dim rgba(255, 255, 255, 0.45);
+
+* {
+  font-family: "JetBrainsMono Nerd Font";
+  font-weight: 600;
+  border-radius: 10px;
+}
+
+/* =========================
+   NOTIFICATIONS
+========================= */
+
+.notification-row {
+  margin: 4px 10px;
+  background: rgba(26, 26, 34, 0.45);
+  border: 1px solid @noti-border-color;
+  border-radius: 10px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+  transition: background 150ms ease,
+              border-color 150ms ease,
+              box-shadow 150ms ease;
+}
+
+.notification-row:hover {
+  background: @noti-bg-hover;
+  border-color: rgba(255, 255, 255, 0.30);
+  box-shadow: 0 6px 32px rgba(0, 0, 0, 0.40),
+              inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.notification {
+  background: transparent;
+  border: none;
+  padding: 8px;
+  box-shadow: none;
+}
+
+/* Close button */
+.close-button {
+  color: @text-color-disabled;
+  background: transparent;
+  transition: background 120ms ease, color 120ms ease;
+}
+
+.close-button:hover {
+  background: @accent-dim;
+  color: rgba(16, 16, 20, 0.95);
+}
+
+/* Text */
+.summary {
+  font-size: 15px;
+  font-weight: 700;
+  color: @text-color;
+}
+
+.time {
+  font-size: 12px;
+  color: @text-color-disabled;
+}
+
+.body {
+  font-size: 12px;
+  color: @text-color;
+}
+
+/* Actions */
+.notification-action,
+.notification-default-action {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid @noti-border-color;
+  transition: background 120ms ease, color 120ms ease;
+}
+
+.notification-action:hover,
+.notification-default-action:hover {
+  background: @accent-dim;
+  color: rgba(16, 16, 20, 0.95);
+}
+
+/* Inline reply */
+.inline-reply-entry,
+.inline-reply-button {
+  background: rgba(255, 255, 255, 0.06);
+  color: @text-color;
+  border: 1px solid @noti-border-color;
+}
+
+.inline-reply-button:hover {
+  background: @accent;
+  color: rgba(16, 16, 20, 0.95);
+}
+
+/* =========================
+   CONTROL CENTER
+========================= */
+
+.control-center {
+  background: rgba(16, 16, 20, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 12px;
+
+  /* frosted glass */
+  box-shadow: 0 8px 48px rgba(0, 0, 0, 0.45),
+              inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Title */
+.widget-title {
+  color: @text-color;
+  font-size: 16px;
+}
+
+.widget-title > button {
+  background: rgba(255, 255, 255, 0.06);
+  color: @text-color;
+  border: 1px solid @noti-border-color;
+  transition: background 120ms ease, color 120ms ease;
+}
+
+.widget-title > button:hover {
+  background: @accent-dim;
+  color: rgba(16, 16, 20, 0.95);
+}
+
+/* DND */
+.widget-dnd {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.widget-dnd > switch:checked {
+  background: @accent;
+}
+
+/* Generic widgets */
+.widget-label,
+.widget-volume,
+.widget-backlight,
+.widget-mpris,
+.widget-buttons-grid {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* Buttons */
+.widget-buttons-grid > flowbox > flowboxchild > button {
+  background: rgba(16, 16, 20, 0.55);
+  color: @text-color;
+  border: 1px solid @noti-border-color;
+  transition: background 120ms ease, color 120ms ease, border-color 120ms ease;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+  background: @accent;
+  color: rgba(16, 16, 20, 0.95);
+  border-color: transparent;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:checked {
+  background: @accent-dim;
+  color: rgba(16, 16, 20, 0.95);
+}
+
+/* Sliders */
+scale trough {
+  background: rgba(255, 255, 255, 0.10);
+}
+
+scale highlight {
+  background: @accent;
+}
+
+/* MPRIS */
+.widget-mpris {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.widget-mpris-album-art {
+  border-radius: 12px;
+  min-width: 96px;
+  min-height: 96px;
+}
+
+/* Show blurred album cover as background */
+picture.mpris-background {
+  opacity: 1;
+  filter: blur(10px);
+  z-index: 0;
+}
